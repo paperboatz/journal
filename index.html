@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Web Development Theropy </title>
+	<link rel="stylesheet" type="text/css" href="css/vendor/animate.css">
+	<link rel="stylesheet" href="css/vendor/bootstrap.css">
+	<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700,600' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/journal_styles.css">
+</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-default" data-spy="affix" data-offset-top="197">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">Dr. Chaise</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li class="active"><a href="#write-anchor">Write <span class="sr-only">(current)</span></a></li>
+				        <li><a href="#anchor">Posts</a></li>
+				      </ul>
+
+				       <!--  ADDED FILTER -->
+				    <form id="live-search" action="" class="styled" method="post">
+					    <fieldset>
+					        <input type="text" class="text-input" id="filter" value="" placeholder="Search Posts"/>
+					        <span id="filter-count"></span>
+					    </fieldset>
+					</form>
+
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+
+			<div class="jumbotron"> 
+				<div class="introtext"> 
+					<h1 class="title"> The Chaise Longue </h1>
+					<p> Welcome to Dr. Chaise Longue, the safest place to let go of your feelings... </p>
+					<a href="#write-anchor"><span class="glyphicon glyphicon-menu-down"></span></a>
+				</div>
+			</div>
+		</header>
+
+		<a name="write-anchor"></a>
+
+		<main class="container-fluid mainMove"> 
+			<div class="row"> 
+				<form id = "form-factory"> 
+				
+					<div class="form-meta col-md-2"> 
+						<div class="form-group">
+						<label>
+							<span>Your Story</span>
+						</label>
+							<input type="text" name="name" id="entryName" placeholder="Title">
+						</div>
+
+						<div class="form-group ">
+						<label> Who are you? </label>
+							<input type="text" name="authorName" id="authorName" placeholder="author">
+						</div>
+
+						<button type="submit" class="btn btn-primary " id="trigger" data-toggle="modal" data-target=".bd-example-modal-sm" >Post Feelings</button>
+
+						<img src="images/chaise-longue-01.jpg">
+						<p> Dr. Chaise Longue <br> <span class="subtext"> Certified WDI Therapist <br> </span> </p>
+					</div>
+
+					<div class="form-content col-md-6">
+						<h1> <span class='h1emp'> Let's talk.</span> This is a safe place.</h1>
+
+						<label> Let your feelings flow... </label>
+						<textarea rows="20" cols="70" name="contentName" id="contentName" placeholder="What's on your mind?">  </textarea>
+					</div>
+				</form>
+
+			</div>
+			
+			<div class="current-entry"> </div>
+		</main>
+
+		<div class="entry-bkg"> 
+			<a name="anchor"></a>
+			<div class="all-entries"> 
+				<ul id="list-all-entries"> </ul>
+			</div>
+		</div>
+
+		<div id="saved-entries">
+		</div>
+
+		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+			    <div class="modal-content">
+			    	<h2 class="colorh2"> Thank you for sharing. </h2>
+			    	<hr>
+			    	<p> Doesn't it feel good to talk? How about reflecting? </p> 
+			    	<a href="#anchor" class="btn btn-default">See Your Thoughts</a>
+			      	<p> Don't feel better? That's a shame.</p>
+			      	<a href="#write-anchor" class="btn btn-default">Write more</a>
+			    </div>
+	  		</div>
+		</div>
+
+		<script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+		<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/journal_factory.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
+</html>
