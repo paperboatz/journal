@@ -1,3 +1,6 @@
+
+/*Standard styligns*/
+
 body {
 	font-family: 'Source Serif Pro', georgia, serif;
 	font-size: 1.5rem;
@@ -9,25 +12,6 @@ p {
 	margin: 10px 10px;
 }
 
-.jumbotron {
-	background-image: url('../images/rsz_93c91c28e5.jpg');
-	background-size: cover;
-	height: 800px;
-	margin-bottom: 0;
-}
-
-.jumbotron p {
-	margin-bottom: 0;
-}
-
-.navbar {
-	margin-top: 0;
-	margin-bottom: 0;
-	border-bottom: 1px solid black;
-}
-
-
-/*TYPE STYLINGS */
 h1 {
 	font-size: 2.5rem;
 	font-family: 'Source Serif Pro', georgia, serif;
@@ -60,10 +44,8 @@ label {
 	display: block;
 }
 
-.h1emp {
-	color: rgb(122,149,122);
-}
 
+/*text specific stylings*/
 .introtext {
   width:500px;
   position:relative;
@@ -79,12 +61,6 @@ label {
 	background-color: rgb(54,54,54);
 }
 
-.glyphicon {
-	font-size: 100px;
-	color: rgba(0, 0, 0, 0.55);
-	padding-top:0;
-}
-
 .subtext{
 	font-size: 10px;
 	font-weight: 700;
@@ -94,6 +70,48 @@ label {
 	color: rgb(122,149,122);
 	letter-spacing: 2px;
 }
+
+.glyphicon {
+	font-size: 100px;
+	color: rgba(0, 0, 0, 0.55);
+	padding-top:0;
+}
+
+.h1emp {
+	color: rgb(122,149,122);
+}
+
+.date {
+	color: white;
+	display: inline-block;
+	padding-left: 1%;
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+
+/*NAV BAR*/
+.navbar {
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid black;
+	z-index: 10000;
+	width:100%;	/*100% or it collapses as you scroll*/
+}
+
+
+/*jumbotron*/
+.jumbotron {
+	background-image: url('../images/rsz_93c91c28e5.jpg');
+	background-size: cover;
+	height: 800px;
+	margin-bottom: 0;
+}
+
+.jumbotron p {
+	margin-bottom: 0;
+}
+
 
 /*PROFILE IMAGE*/
 
@@ -105,15 +123,7 @@ img {
     margin-top: 10%;
 }
 
-/*NAV BAR*/
-
-.navbar {
-	z-index: 10000;
-	width:100%;	/*100% or it collapses as you scroll*/
-}
-
-/*FORM CSS*/
-
+/*FORM*/
 .mainMove {
 	padding:5% 0;
 	background-color: rgb(236,238,234);
@@ -129,12 +139,11 @@ img {
 
 
 /*FILTER*/
-
 .styled {
 	padding: 15px 0px;
 }
 
-/*ENTRIES TEXT STYLING*/
+/*ENTRIES STYLING*/
 
 .content {
 	color: rgb(54,54,54);
@@ -142,17 +151,9 @@ img {
 	border: 2px solid white;
 }
 
-.date {
-	color: white;
-	display: inline-block;
-	padding-left: 1%;
-	font-size: 1rem;
-	text-transform: uppercase;
-}
 
 
 /*ENTRIES CONTAINER STYLING*/
-
 .entrycontainer {
 	width:50%;
 	display: block;
@@ -185,6 +186,7 @@ img {
 	margin: 2% 0 0 3%;
 }
 
+/*btn*/
 
 .btn-primary {
 	background-color: white;
