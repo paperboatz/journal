@@ -12,7 +12,7 @@ app.get('/*', function(req, res){
 });
 
 // LISTEN TO SERVER
-app.listen(8080, function() {
+app.listen(80, function() {
   console.log('gurrrrl listening to Port 8080, stop with Ctrl + C');
 });
 
