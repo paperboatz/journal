@@ -99,6 +99,9 @@ label {
 	width:100%;	/*100% or it collapses as you scroll*/
 }
 
+.navbar-default .navbar-nav > li > a:hover{
+	color: rgb(122,149,122);
+}
 
 /*jumbotron*/
 .jumbotron {
@@ -139,7 +142,7 @@ img {
 
 
 /*FILTER*/
-.styled {
+.filter {
 	padding: 15px 0px;
 }
 
@@ -151,7 +154,9 @@ img {
 	border: 2px solid white;
 }
 
-
+.noentries {
+	text-align: center;
+}
 
 /*ENTRIES CONTAINER STYLING*/
 .entrycontainer {
@@ -199,10 +204,4 @@ img {
 	color: white;
 }
 
-/*MODEL*/
-
-.modal-content{
-	margin-top: 50%;
-	padding: 10%;
-;}
 

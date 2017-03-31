@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Web Development Theropy </title>
+	<title> Web Development Therapy </title>
 	<link rel="stylesheet" type="text/css" href="css/vendor/animate.css">
 	<link rel="stylesheet" href="css/vendor/bootstrap.css">
 	<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700,600' rel='stylesheet' type='text/css'>
@@ -25,14 +25,14 @@
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
-				        <li class="active"><a href="#write-anchor">Write <span class="sr-only">(current)</span></a></li>
+				        <li><a href="#write-anchor">Write <span class="sr-only">(current)</span></a></li>
 				        <li><a href="#anchor">Posts</a></li>
 				      </ul>
 
 				       <!--  ADDED FILTER -->
-				    <form id="live-search" action="" class="styled" method="post">
+				    <form id="live-search" action="" class="filter" >
 					    <fieldset>
-					        <input type="text" class="text-input" id="filter" value="" placeholder="Search Posts"/>
+					        <input type="text" class="text-input noEnterSubmit" id="filter" value="" placeholder="Search Posts"/>
 					        <span id="filter-count"></span>
 					    </fieldset>
 					</form>
@@ -82,33 +82,15 @@
 						<textarea rows="20" cols="70" name="contentName" id="contentName" placeholder="What's on your mind?">  </textarea>
 					</div>
 				</form>
-
 			</div>
 			
 			<div class="current-entry"> </div>
 		</main>
 
-		<div class="entry-bkg"> 
-			<a name="anchor"></a>
+		<div id='anchor' class="entry-bkg "> 
 			<div class="all-entries"> 
 				<ul id="list-all-entries"> </ul>
 			</div>
-		</div>
-
-		<div id="saved-entries">
-		</div>
-
-		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-			    <div class="modal-content">
-			    	<h2 class="colorh2"> Thank you for sharing. </h2>
-			    	<hr>
-			    	<p> Doesn't it feel good to talk? How about reflecting? </p> 
-			    	<a href="#anchor" class="btn btn-default">See Your Thoughts</a>
-			      	<p> Don't feel better? That's a shame.</p>
-			      	<a href="#write-anchor" class="btn btn-default">Write more</a>
-			    </div>
-	  		</div>
 		</div>
 
 		<script type="text/javascript" src="js/vendor/jquery.min.js"></script>

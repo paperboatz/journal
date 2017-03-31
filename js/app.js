@@ -1,23 +1,23 @@
+
+'use strict'
+
+
 //CREATE A NEW JOURNAL
-var journal1 = new JournalFactory( "journaltitle", "journalauthor", "journalcontent", "journaldate"
-	); // make a journal to store entries. It is container for entries
+// make a journal to store entries. It is container for entries
+var journal1 = new JournalFactory( "journaltitle", "journalauthor", "journalcontent", "journaldate"); 
 
 
-// SUBMIT BUTTON TRIGGER
+// SUBMIT BUTTON 
 $("#form-factory").submit(function(e){
 	e.preventDefault();
 	createEntry($(this));  //$(this) - is refering back to itself ("#form-factory"), it's taking its values
+	
+	// jump to current entry after submission
+	var savedEntries = $('.current-entry');
+	$("html, body").scrollTop(savedEntries.offset().top);
 });
 
-//BOUNCE ARROW 
-$(document).ready(function(){
-	$('.glyphicon').addClass('bounceInDown infinite animated')
-})
 
-//BOUNCE HEADER
-$(document).ready(function(){
-	$('.colorh2').addClass('bounce iteration animates1')
-})
 
 //TAKING INPUTS FROM FORM, DISPLAY INPUT W/ DELETE BUTTON
 function createEntry(frm){
@@ -38,17 +38,25 @@ function createEntry(frm){
 				html += '<p class="date">' +journal1.entries[i].date+ '</p>' ;
 				html += '<div class="content">' +journal1.entries[i].content+ '</div>'; //grab variable from entry factory
 				html += "<button class='delete-entry btn btn-default ' id="+ i +"> delete entry</button></div>" // i = specific id for each button
-			$('#list-all-entries').append(html); // appending html gathered above, adding it to list-of-all-entries
+			$('#list-all-entries').prepend(html); // appending html gathered above, adding it to list-of-all-entries
 		};
 
 		$('.delete-entry').click(function(){
-				hideEntry($(this)); // click delete-entry,  activates hideEntry. NEEDS TO EXIST BEFORE hideEntry fcn for js to read. It needs anonymous fcn to run. 
+			hideEntry($(this)); // click delete-entry,  activates hideEntry. NEEDS TO EXIST BEFORE hideEntry fcn for js to read. It needs anonymous fcn to run. 
 		})	
 
 	} else {
-		$('.all-entries').html('No entries are loaded');
+		$('.all-entries').html('You have no entries');
 	}
+
+	// resets input back to blank 
+	frm.find('input[name="name"]').val('');
+	frm.find('input[name="authorName"]').val('');
+	frm.find('textarea[name="contentName"]').val('');
+
 };
+
+
 
 //DELETES ENTRY FROM ARRAY & REFRESHES ARRAY
 function hideEntry(buttondelete){
@@ -61,50 +69,42 @@ function hideEntry(buttondelete){
 	$('#list-all-entries').html('');
 
 	for (var i = 0; i < journal1.entries.length; i++){
-		var html = "<div><h1>" + journal1.entries[i].title + "</h1>" 
-			html += journal1.entries[i].author ;  
-			html += journal1.entries[i].content ;
-			html += journal1.entries[i].date ;
-
-			html += "<button class='delete-entry' id="+ i +"> delete entry</button></div>"
+		var html = "<div class='entrycontainer'><h1>" + journal1.entries[i].title + "</h1>" 
+				html += '<h3>' +journal1.entries[i].author+ '</h3>' ;  // grab variable, adding to .append html below
+				html += '<p class="date">' +journal1.entries[i].date+ '</p>' ;
+				html += '<div class="content">' +journal1.entries[i].content+ '</div>'
+				html += "<button class='delete-entry' id="+ i +"> delete entry</button></div>"
 		$('#list-all-entries').append(html);
 	};
 
 	$('.delete-entry').click(function(){
 		hideEntry($(this));
-	})		
+	})
+
+	// checks again if there are no entries after delete button 
+	if (journal1.entries.length === 0) {
+		var html = "<div class='entrycontainer noentries'>Currently there are no entries.</div>"
+		$('#list-all-entries').append(html);
+    }	
 };
 
 
-//LOADING ENTRIES 
-$('#load').click(function(){
+//Inital No entries
+if (journal1.entries.length === 0) {
+	var html = "<div class='entrycontainer noentries'>Currently there are no entries.</div>"
+	$('#list-all-entries').append(html);
+}
 
-	loaded_entries = JSON.parse(localStorage.getItem('savedAllEntries'));									
-	$('#saved-entries').html(" ");
 
-	//ACCESS CONTENT FROM ARRAY TO LOAD
-	for (var i = 0; i < loaded_entries.length; i++){
-		var html = "<div><h1> title" + loaded_entries[i].title + "</h1>" 
-			html += loaded_entries[i].author ;  
-			html += loaded_entries[i].content ; 
-			html += journal1.entries[i].date ;
-			html += "<button class='delete-entry' id="+ i +"> delete entry</button></div>"
-		$("#saved-entries").append(html);
-	};
-
-	$('.delete-entry').click(function(){
-		hideEntry($(this));
-	});
-});
-
+// Filters entries 
 $(document).ready(function(){
     $("#filter").keyup(function(){
  
         // Retrieve the input field text and reset the count to zero
-        var filter = $(this).val(), count = 0;
+        var filter = $(this).val();
  
         // Loop through the comment list
-        $("#list-all-entries div").each(function(){
+        $("#list-all-entries > div").each(function(){
             // If the list item does not contain the text phrase fade it out
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
                 $(this).fadeOut();
@@ -112,13 +112,30 @@ $(document).ready(function(){
             // Show the list item if the phrase matches and increase the count by 1
             } else {
                 $(this).show();
-                count++;
             }
         });
- 
-        // Update the count
-        var numberItems = count;
     });
 });
 
+/* Stops keydown Enter, when pressed page will jump to top
+    this is default behavior of submitting, but by disabling key
+    this no longer happens */
+$('#filter').keydown(function(event) {
+   if (event.keyCode == 13) return false;
+});
+
+
+
+// ==== ANIMATIONS ==== // 
+
+
+//BOUNCE ARROW 
+$(document).ready(function(){
+	$('.glyphicon').addClass('bounceInDown infinite animated')
+})
+
+//BOUNCE HEADER
+$(document).ready(function(){
+	$('.colorh2').addClass('bounce iteration animates1')
+})
 
