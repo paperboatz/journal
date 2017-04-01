@@ -2,4 +2,4 @@
 
 Add and delete entries on localStorage.
 
-Visit the journal: [52.88.158.156] 
+Visit the journal: http://52.88.158.156
